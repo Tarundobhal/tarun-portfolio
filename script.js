@@ -350,4 +350,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // 7. Live Chat Integration (Tawk.to & Instant Live Messenger)
+  const startLiveChatBtn = document.getElementById('startLiveChatBtn');
+  if (startLiveChatBtn) {
+    startLiveChatBtn.addEventListener('click', () => {
+      playRetroSound('success');
+      if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
+        window.Tawk_API.maximize();
+      } else {
+        showToast('Connecting to Real-time Chat... 💬');
+        const phone = '918756093267';
+        const msg = encodeURIComponent('Hi Tarun, I am reviewing your portfolio and would like to connect in real time!');
+        setTimeout(() => {
+          window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+        }, 500);
+      }
+    });
+  }
 });
