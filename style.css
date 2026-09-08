@@ -1241,3 +1241,109 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
   margin-top: 15px;
 }
+/* ==========================================================
+   INTERACTIVE RETRO TERMINAL (tarun_profile.exe) STYLES
+   ========================================================== */
+.terminal-active-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+}
+
+.term-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--black-ink);
+  padding: 2px 0;
+}
+
+.term-input::placeholder {
+  color: #94A3B8;
+  font-weight: normal;
+}
+
+.term-link {
+  color: #0284C7;
+  font-weight: 700;
+  text-decoration: underline;
+  transition: all 0.15s;
+}
+
+.term-link:hover {
+  color: var(--blue-accent);
+  background: #E0F2FE;
+}
+
+.terminal-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 14px 0 10px 0;
+  padding-top: 10px;
+  border-top: 1px dashed #CBD5E1;
+}
+
+.term-chip-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #64748B;
+  margin-right: 4px;
+}
+
+.term-chip {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #E0F2FE;
+  border: 1.5px solid var(--border-dark);
+  box-shadow: 1.5px 1.5px 0px var(--border-dark);
+  padding: 2px 8px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.12s;
+  color: var(--black-ink);
+}
+
+.term-chip:hover {
+  background: var(--blue-main);
+  transform: translate(-1px, -1px);
+  box-shadow: 2.5px 2.5px 0px var(--border-dark);
+}
+
+.term-chip:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0.5px 0.5px 0px var(--border-dark);
+}
+
+.chip-clear {
+  background: #FEE2E2;
+}
+
+.chip-clear:hover {
+  background: #FCA5A5;
+}
+
+.term-status-indicator {
+  color: #16A34A;
+  font-weight: bold;
+}
+
+.terminal-entry {
+  margin-bottom: 12px;
+  animation: fadeInTerm 0.15s ease-in;
+}
+
+@keyframes fadeInTerm {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

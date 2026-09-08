@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -132,37 +132,68 @@
         </div>
 
         <div class="hero-card-column">
-          <!-- Retro Window Terminal Card -->
-          <div class="retro-window">
+          <!-- Retro Window Terminal Card (Interactive CLI) -->
+          <div class="retro-window terminal-container" id="terminalWindow">
             <div class="window-header">
               <div class="window-controls">
-                <span class="ctrl-dot dot-red"></span>
-                <span class="ctrl-dot dot-yellow"></span>
-                <span class="ctrl-dot dot-green"></span>
+                <span class="ctrl-dot dot-red" id="termClose" title="Clear / Reset terminal" style="cursor: pointer;"></span>
+                <span class="ctrl-dot dot-yellow" id="termMinimize" title="Toggle Quick Commands" style="cursor: pointer;"></span>
+                <span class="ctrl-dot dot-green" id="termMaximize" title="Run 'help' command" style="cursor: pointer;"></span>
               </div>
               <div class="window-title">tarun_profile.exe</div>
-              <div class="window-side">v3.0</div>
+              <div class="window-side">v3.0 [LIVE CLI]</div>
             </div>
-            <div class="window-body terminal-body">
-              <p class="terminal-line"><span class="prompt">$</span> <span class="cmd">whoami</span></p>
-              <p class="terminal-output">"Tarun Dobhal — Branch Topper & Machine Learning / DSA Enthusiast"</p>
-              
-              <p class="terminal-line"><span class="prompt">$</span> <span class="cmd">cat credentials.json</span></p>
-              <div class="code-block">
-                <span class="key">"academics":</span> <span class="val">"B-Tech CSE, AKTU (2023-27)"</span>,<br>
-                <span class="key">"cgpa":</span> <span class="val">"9.05 / 10.00 (Branch Topper)"</span>,<br>
-                <span class="key">"honor":</span> <span class="val">"Meenakshi Dixit Award (₹21,000)"</span>,<br>
-                <span class="key">"experience":</span> <span class="val">"Data Science Intern @ CodeAlpha"</span>,<br>
-                <span class="key">"stack":</span> <span class="val">["C++", "Python", "DSA", "ML", "Pandas", "Scikit-learn"]</span>
+            <div class="window-body terminal-body" id="terminalBody" style="cursor: text;">
+              <div id="terminalHistory">
+                <div class="terminal-entry">
+                  <p class="terminal-line"><span class="prompt">$</span> <span class="cmd">whoami</span></p>
+                  <p class="terminal-output">"Tarun Dobhal — Branch Topper & Machine Learning / DSA Enthusiast"</p>
+                </div>
+                
+                <div class="terminal-entry">
+                  <p class="terminal-line"><span class="prompt">$</span> <span class="cmd">cat credentials.json</span></p>
+                  <div class="code-block">
+                    <span class="key">"academics":</span> <span class="val">"B-Tech CSE, AKTU (2023-27)"</span>,<br>
+                    <span class="key">"cgpa":</span> <span class="val">"9.05 / 10.00 (Branch Topper)"</span>,<br>
+                    <span class="key">"honor":</span> <span class="val">"Meenakshi Dixit Award (₹21,000)"</span>,<br>
+                    <span class="key">"experience":</span> <span class="val">"Data Science Intern @ CodeAlpha"</span>,<br>
+                    <span class="key">"stack":</span> <span class="val">["C++", "Python", "DSA", "ML", "Pandas", "Scikit-learn"]</span>
+                  </div>
+                </div>
+
+                <div class="terminal-entry">
+                  <p class="terminal-line"><span class="prompt">$</span> <span class="cmd">./check_profiles.sh</span></p>
+                  <div class="terminal-quote">
+                    <a href="https://www.linkedin.com/in/tarun-dobhal-b89b07288" target="_blank" class="term-link">LinkedIn ↗</a> • 
+                    <a href="https://github.com/Tarundobhal" target="_blank" class="term-link">GitHub ↗</a> • 
+                    <a href="https://leetcode.com" target="_blank" class="term-link">LeetCode ↗</a>
+                    <span style="color:#107C41; font-weight: bold; margin-left: 6px;">[VERIFIED ✓]</span>
+                  </div>
+                </div>
               </div>
 
-              <p class="terminal-line"><span class="prompt">$</span> <span class="cmd">./check_profiles.sh</span></p>
-              <p class="terminal-quote">
-                LinkedIn • GitHub • LeetCode Verified
-              </p>
+              <!-- Interactive Command Input -->
+              <div class="terminal-active-line">
+                <span class="prompt">$</span>
+                <input type="text" id="termInput" class="term-input" placeholder="type 'help', 'whoami', 'skills'..." autocomplete="off" spellcheck="false" />
+                <span class="blink-cursor">█</span>
+              </div>
+
+              <!-- Quick Command Clickable Chips -->
+              <div class="terminal-chips" id="terminalChips">
+                <span class="term-chip-label">Quick Run:</span>
+                <button type="button" class="term-chip" data-cmd="whoami">whoami</button>
+                <button type="button" class="term-chip" data-cmd="cat credentials.json">credentials</button>
+                <button type="button" class="term-chip" data-cmd="./check_profiles.sh">profiles</button>
+                <button type="button" class="term-chip" data-cmd="skills">skills</button>
+                <button type="button" class="term-chip" data-cmd="projects">projects</button>
+                <button type="button" class="term-chip" data-cmd="contact">contact</button>
+                <button type="button" class="term-chip" data-cmd="help">help</button>
+                <button type="button" class="term-chip chip-clear" data-cmd="clear">clear</button>
+              </div>
               
               <div class="terminal-footer">
-                <span class="blink-cursor">█</span> Status: Ready for Technical Challenges
+                <span class="term-status-indicator">●</span> Status: Ready for Technical Challenges • Interactive Terminal v3.0
               </div>
             </div>
           </div>
